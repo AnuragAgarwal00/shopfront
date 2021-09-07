@@ -1,3 +1,4 @@
+import braintree
 from django.db import models
 from shop.models import Product
 
@@ -11,6 +12,7 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    braintree_id = models.CharField(max_length=150, blank=True)
 
     class Meta:
         ordering = ('-created',)
